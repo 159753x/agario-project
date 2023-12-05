@@ -11,8 +11,13 @@ class Network:
     """
     def __init__(self):
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        # getting ip addres of server without command ipconfig in cmd
+        HOST_NAME = socket.gethostname()
+        SERVER_IP = socket.gethostbyname(HOST_NAME)
+        
         #self.client.settimeout(10.0)
-        self.host = "192.168.1.11"
+        self.host = SERVER_IP
         self.port = 5556
         self.addr = (self.host, self.port)
 
